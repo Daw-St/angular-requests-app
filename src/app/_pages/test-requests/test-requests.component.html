@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="content-wrapper">
+    <form [formGroup]="request" (ngSubmit)="onSubmit()">
+      <select class="custom-select" (change)="changeMethod($event)" formControlName="method">
+        <option value="">Choose your request method</option>
+        <option *ngFor="let method of methods" [value]="method">{{method}}</option>
+      </select>
+      <label class="url">
+        url:
+        <input type="text" formControlName="url">
+      </label><br>
+      <label class="body">
+        body:
+        <textarea type="text" formControlName="body" [placeholder]="bodyPlaceholder"></textarea>
+      </label>
+      <div formArrayName="headers">
+        <h3>Headers</h3>
+        <button (click)="addHeader()">Add Header</button>
+        <button (click)="removeHeader()">Remove last Header</button>
+        <div *ngFor="let header of headers.controls; let i=index">
+          <label>
+            Header:
+            <input class="header-input" type="text" [formControlName]="i">
+          </label>
+        </div>
+      </div>
+      <div formArrayName="params">
+        <h3>Params</h3>
+        <button (click)="addParam()">Add Param</button>
+        <button (click)="removeParam()">Remove last Param</button>
+        <div *ngFor="let param of params.controls; let i=index">
+          <label>
+            Param:
+            <input type="text" [formControlName]="i">
+          </label>
+        </div>
+      </div>
+      <button type="submit" [disabled]="!request.valid">Submit</button>
+    </form>
+    <p>
+      Form Value: {{ request.value | json }}
+    </p>
+    <p>
+      Form Status: {{ request.status }}
+    </p>
+    <p>
+      Request Response: {{ response }}
+    </p>
+
+    <code><pre>{{ response }}</pre></code>
+  </div>
+</div>

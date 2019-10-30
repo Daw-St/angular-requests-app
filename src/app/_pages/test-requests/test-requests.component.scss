@@ -1,0 +1,32 @@
+@import '../../../assets/styles/global';
+
+@include view-container;
+
+.container {
+  position: relative;
+  .content-wrapper {
+    max-width: 800px;
+    .methods-wrapper__method {
+      cursor: pointer;
+      padding: 3px;
+      &:hover {
+        background-color: #ada8b6;
+        color: $white;
+        border-radius: 2px;
+      }
+    }
+  }
+}
+
+.url input {
+  width: 300px;
+}
+
+.body textarea {
+  width: 500px;
+  height: 200px;
+}
+
+.header-input {
+  width: 500px;
+}
