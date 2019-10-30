@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 })
 export class WelcomeComponent implements OnInit {
 
-  private welcomeText = 'Welcome!!!';
+  public welcomeText = 'Welcome!!!';
 
-  constructor(private router: Router) { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
   }

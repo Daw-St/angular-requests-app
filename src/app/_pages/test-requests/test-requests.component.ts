@@ -14,10 +14,10 @@ import { StorageKeys } from '../../_shared/_enums/storage-keys';
 })
 export class TestRequestsComponent implements OnInit {
 
-  private methods: string[] = METHODS;
-  private response: string;
-  private exampleBody = 'title: \'foo\', body: \'bar\', userId: 1';
-  private bodyPlaceholder = '';
+  public methods: string[] = METHODS;
+  public response: string;
+  public exampleBody = 'title: \'foo\', body: \'bar\', userId: 1';
+  public bodyPlaceholder = '';
 
   request = this.fb.group({
     method: new FormControl(''),
