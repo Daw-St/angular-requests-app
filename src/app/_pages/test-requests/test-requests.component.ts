@@ -3,7 +3,7 @@ import { RandomRequestsService } from '../../_core/_services/_api/random-request
 import { catchError, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { METHODS } from '../../_shared/_constants/methods';
-import { FormArray, FormBuilder, FormControl } from '@angular/forms';
+import { FormBuilder, FormControl } from '@angular/forms';
 import { AppStorageService } from '../../_core/_services/app-storage/app-storage.service';
 import { StorageKeys } from '../../_shared/_enums/storage-keys';
 
@@ -23,21 +23,7 @@ export class TestRequestsComponent implements OnInit {
     method: new FormControl(''),
     url: new FormControl(''),
     body: new FormControl(''),
-    headers: this.fb.array([
-      this.fb.control('')
-    ]),
-    params: this.fb.array([
-      this.fb.control('')
-    ])
   });
-
-  get headers() {
-    return this.request.get('headers') as FormArray;
-  }
-
-  get params() {
-    return this.request.get('params') as FormArray;
-  }
 
   constructor(
     private randomRequestService: RandomRequestsService,
@@ -70,22 +56,6 @@ export class TestRequestsComponent implements OnInit {
 
   get methodName() {
     return this.request.get('method');
-  }
-
-  public addHeader() {
-    this.headers.push(this.fb.control(''));
-  }
-
-  public removeHeader() {
-    this.headers.removeAt(this.headers.length - 1);
-  }
-
-  public addParam() {
-    this.params.push(this.fb.control(''));
-  }
-
-  public removeParam() {
-    this.params.removeAt(this.params.length - 1);
   }
 
   public onSubmit() {

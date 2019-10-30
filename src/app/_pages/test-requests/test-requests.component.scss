@@ -5,7 +5,9 @@
 .container {
   position: relative;
   .content-wrapper {
-    max-width: 800px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
     .methods-wrapper__method {
       cursor: pointer;
       padding: 3px;
@@ -29,4 +31,20 @@
 
 .header-input {
   width: 500px;
+}
+
+label, button {
+  float: left;
+}
+
+.form {
+  margin-bottom: 30px;
+}
+
+.custom-select {
+  margin-bottom: 20px;
+}
+
+.body {
+  padding-top: 20px;
 }
